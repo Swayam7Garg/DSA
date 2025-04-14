@@ -1,6 +1,6 @@
+// to delete the middle element from a stack
 #include<bits/stdc++.h>
 using namespace std;
-// to delete the middle element from a stack
 void solve(stack <int> & Mystack , int size ,int count){
     // making a base case
     if(count == size/2){

@@ -20,7 +20,7 @@ public:
     {
         if (rear == size)
         {
-            cout << "Queue is full\n";
+            cout << "Queue is full";
         }
         else
         {

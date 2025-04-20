@@ -1,3 +1,4 @@
+//circular queue implementation
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -11,7 +12,7 @@ public:
     Mycircularqueue(int size) {
         this->size = size;
         arr = new int[size];
-        front = rear = -1;
+        front = rear = -1;//initailly front and rear are -1 
     }
 
     bool enqueue(int x) {
@@ -19,12 +20,15 @@ public:
             cout << "Queue is full" << endl;
             return false;
         }
-
-        if (front == -1) { // first element
+        //inserting first element
+        if (front == -1) { 
             front = rear = 0;
-        } else if (rear == size - 1 && front != 0) {
+        }
+        //if the rear is at the end of the queue and front is not on the 0th index 
+        else if (rear == size - 1 && front != 0) {
             rear = 0;
-        } else {
+        } 
+        else {
             rear = (rear + 1) % size;
         }
 
@@ -33,12 +37,13 @@ public:
     }
 
     int dequeue() {
+        //if the queue is empty
         if (front == -1) {
             cout << "can't pop queue is empty" << endl;
             return -1;
         }
 
-        int ans = arr[front];
+        int ans = arr[front];//storing the front value 
         arr[front] = -1;
 
         if (front == rear) {

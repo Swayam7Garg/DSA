@@ -42,6 +42,6 @@ int main(){
     root->right->right = new Node(7);
 
     int ans = heightofbinarytree(root);
-    cout<<ans;
+    cout<<"Height of the binary tree :"<<ans;
     return 0;
 }

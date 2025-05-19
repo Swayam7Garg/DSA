@@ -34,7 +34,7 @@ class Solution {
             }
             int lh = height(node->left , diameter);
             int rh = height(node -> right , diameter);
-            diameter = max(diameter , lh + rh);
+            diameter = max(diameter , lh + rh);// we simultaneously calculate the potential diameter (left height + right height) for each node.
             return 1 + max(lh , rh);
     
         }

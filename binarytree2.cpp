@@ -1,3 +1,4 @@
+//level order traversal in a binary tree
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -11,13 +12,13 @@ struct Treenode {
         left = right = nullptr;
     }
     Treenode(int val) {
-        data = val; // Corrected assignment
+        data = val; 
         left = right = nullptr;
     }
     Treenode(int val, Treenode* leftNode, Treenode* rightNode) {
-        data = val; // Corrected assignment
-        left = leftNode; // Corrected assignment
-        right = rightNode; // Corrected assignment
+        data = val; 
+        left = leftNode; 
+        right = rightNode; 
     }
 };
 
@@ -35,10 +36,10 @@ vector<vector<int>> leveltraversal(Treenode* root) {
             Treenode* node = q.front();
             q.pop();
             level.push_back(node->data);
-            if (node->left != nullptr) { // Corrected from root->left to node->left
+            if (node->left != nullptr) { 
                 q.push(node->left);
             }
-            if (node->right != nullptr) { // Corrected from root->right to node->right
+            if (node->right != nullptr) {
                 q.push(node->right);
             }
         }

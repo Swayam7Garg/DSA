@@ -1,33 +1,42 @@
-//valid anagram 
-#include<bits/stdc++.h>
+// valid anagram
+#include <bits/stdc++.h>
 using namespace std;
 
-bool validanagram(string s , string t){
+bool validanagram(string s, string t)
+{
     // Anagram - a word, phrase, or name formed by rearranging the letters of another word
-    if(s.length() != t.length()){
+    if (s.length() != t.length())
+    {
         return false;
     }
-    unordered_map<char , int> mp;//creating a unordered map to store the frequency of each character present in the string s
-    int len = s.length();
-    for(int i = 0 ; i < len ; i++){
-        mp[s[i]]++;
+    vector<int> count(26, 0); // array count to check the count
+    for (int i = 0; i < s.length(); i++)
+    {
+        count[s.at(i) - 'a']++; // for a character increment the occurence if it exist in s
+        count[t.at(i) - 'a']--; // for a character decrement the occurence if it exist in t
     }
-    for(int i = 0 ; i < len ; i++){
-        if(mp.find(t[i]) == mp.end()){//checking if t[i] means the character in the string t is in the map or not
+
+    // iterating through the array now
+    for (int i = 0; i < count.size(); i++)
+    {
+        if (count[i] != 0)//if the count[i] is not equal to 0 then the strings are not anagram
+        {
             return false;
         }
-        
     }
     return true;
 }
-int main(){
+int main()
+{
     string s = "google";
     string t = "logoge";
-    if(validanagram(s,t)){
-        cout<<"The given 2 strings are anagram of each other"<<endl;
+    if (validanagram(s, t))
+    {
+        cout << "The given 2 strings are anagram of each other" << endl;
     }
-    else{
-        cout<<"The given 2 strings are not anagram of each other"<<endl;
+    else
+    {
+        cout << "The given 2 strings are not anagram of each other" << endl;
     }
     return 0;
 }
